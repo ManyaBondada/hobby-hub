@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const SummaryCard = (props) =>  {
 
   return (
-      <div className="Card">
+      <div className="SummaryCard">
           {/* <Link to={'edit/'+ props.id}><img className="moreButton" alt="edit button" src={more} /></Link> */}
           <p className="title">{"Title: " + props.title}</p>
           <p className="descr">{"Description: " + props.descr}</p>
