@@ -24,7 +24,7 @@ const ReadPosts = () => {
             {
                 posts && posts.length > 0 ?
                 posts.map((post,index) => 
-                   <SummaryCard id={post.id} tile={post.title} descr={post.descr} image={post.image} key={index}/>
+                   <SummaryCard id={post.id} title={post.title} descr={post.descr} image={post.image} key={index}/>
                 ) : <h2>No Posts Yet. Click to Add!</h2>
             }
         </div>  

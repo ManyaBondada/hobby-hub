@@ -38,7 +38,7 @@ const CreatePost = () => {
                 <br/>
 
                 <label for="descr">Description</label><br />
-                <input type="text" id="descr" name="descr" value={post.descr} onChange={handleChange}/><br/>
+                <textarea id="descr" name="descr" rows="5" cols="50" value={post.descr} onChange={handleChange}/><br/>
                 <br/>
 
                 <label for="image">Image URL</label><br />

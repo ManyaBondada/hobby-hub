@@ -1,4 +1,4 @@
-.SummaryCard {
+.DetailedPost {
     backdrop-filter: blur(2px);
     border: 1px solid rgba(153, 153, 153, 0.497);
     border-radius: 20px;
@@ -6,17 +6,24 @@
     padding-bottom: 20px;
     padding-right: 10px;
     margin-bottom: 25px;
-    width: 1000px;
+    width: 400px;
     text-align: center;
     background-color: white;
 }
+
+/* .name, .element, .companion {
+    color:white;
+    padding-left:30px;
+    font-size: 24px;
+    text-align: center;
+} */
 
 .image{
     max-width: 250px;
     max-height: 250px;
 }
 
-.moreButton {
+/* .moreButton {
     width: 30px;
     float:right;
-}
+} */
