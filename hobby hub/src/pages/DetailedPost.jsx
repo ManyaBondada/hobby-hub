@@ -33,12 +33,15 @@ const DetailedPost = () =>  {
       setCount(count + 1);
   }
 
-
   return (
       <div className="DetailedPost">
 
           {/* post content */}
-          <Link to={`edit/${id}`}><img className="editButton" alt="edit button" src={'https://th.bing.com/th/id/OIP.YwxRLeYYAks_ZHMia4iC9AAAAA?pid=ImgDet&rs=1'} /></Link>
+          <div className="topContent">
+            <Link to={`edit/${id}`}><img className="editButton" alt="edit button" src={'https://th.bing.com/th/id/OIP.YwxRLeYYAks_ZHMia4iC9AAAAA?pid=ImgDet&rs=1'} /></Link>
+            <p className="timeStamp"> Created {Math.floor((Date.now() - Date.parse(post.created_at)) / (1000 * 60 * 60))} hours ago</p>          
+          </div>
+          
           <p className="title2">{post.title}</p>
           <p className="descr2">{post.descr}</p>
           <img className="image" alt="avatar" src={post.image} />
