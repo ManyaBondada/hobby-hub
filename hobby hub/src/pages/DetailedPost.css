@@ -1,29 +1,49 @@
 .DetailedPost {
     backdrop-filter: blur(2px);
     border: 1px solid rgba(153, 153, 153, 0.497);
-    border-radius: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-right: 10px;
-    margin-bottom: 25px;
-    width: 400px;
-    text-align: center;
+    border-radius: 10px;
+    width: 98%;
+    min-width: 1250px;
     background-color: white;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-/* .name, .element, .companion {
-    color:white;
-    padding-left:30px;
-    font-size: 24px;
-    text-align: center;
-} */
+.comments{
+    display: inline-block;
+    background-color: #a9a6a6;
+    min-width: 100%;
+} 
+
+.title2{
+    font-size: 25px;
+    text-align: left;
+    margin: 10px;
+}
+
+.descr2{
+    font-size: 20px;
+    text-align: left;
+    margin: 10px;
+}
 
 .image{
-    max-width: 250px;
-    max-height: 250px;
+    max-width: 400px;
+    max-height: 400px;
+    margin: 10px;
 }
 
-/* .moreButton {
-    width: 30px;
-    float:right;
-} */
+.editButton{
+    max-width: 25px;
+    margin: 10px;
+    float: right;
+}
+
+textarea {
+    border-radius: 8px;
+    width: 91%;
+    border: 1px solid transparent;
+    font-size: 15px;
+}

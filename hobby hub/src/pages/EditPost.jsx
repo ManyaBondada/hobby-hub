@@ -9,6 +9,19 @@ const EditPost = () => {
     const {id} = useParams();
     const [post, setPost] = useState({});
 
+    useEffect(() => {
+        fetchPost();
+    }, []);
+
+    const fetchPost = async () => {
+        const {data} = await supabase
+            .from('Avatarposts')
+            .select("*")
+            .eq('id', id)
+            .single();
+        setPost(data)
+    }
+
     const handleChange = (event) => {
         const {name, value} = event.target;
         console.log("Name: ", name, " value: ", value);
@@ -25,10 +38,10 @@ const EditPost = () => {
     
         await supabase
         .from('Avatarposts')
-        .update({name: post.name})
+        .update(post)
         .eq('id', id);
     
-        window.location = "/";
+        window.location = `/detail/${id}`;
     }
 
     const deletePost = async (event) => {
@@ -39,7 +52,7 @@ const EditPost = () => {
         .delete()
         .eq('id', id); 
     
-        window.location = "/";
+        window.location = `/`;
     }
 
     return (
@@ -50,11 +63,11 @@ const EditPost = () => {
                 <br/>
 
                 <label for="descr">Description</label><br />
-                <input type="text" id="descr" name="descr" value={post.descr}/><br />
+                <textarea id="descr" name="descr" rows="5" cols="50" value={post.descr} onChange={handleChange}/><br/>
                 <br/>
 
                 <label for="image">Image URL</label><br />
-                <input type="text" id="image" name="image" value={post.image}/><br/>
+                <input type="text" id="image" name="image" value={post.image} onChange={handleChange}/><br/>
                 <br/>
 
                 <input type="submit" value="Submit" onClick={updatePost}/>

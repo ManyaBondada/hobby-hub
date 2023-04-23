@@ -7,13 +7,24 @@
     padding-right: 10px;
     margin-bottom: 25px;
     width: 1000px;
-    text-align: center;
     background-color: white;
+    font-family: sans-serif;
 }
 
-.image{
-    max-width: 250px;
-    max-height: 250px;
+.title{
+    text-align: center;
+    font-size: 30px;
+}
+
+.timeStamp{
+    text-align: left;
+    font-size: 15px;
+    margin: 10px;
+}
+
+.upvote{
+    width: 30px;
+    float: left;
 }
 
 .moreButton {
