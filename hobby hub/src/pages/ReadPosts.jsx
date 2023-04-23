@@ -47,7 +47,7 @@ const ReadPosts = () => {
                 }}>Newest</button>
                 <button className="orderUp" onClick={() => {
                     setSortBy('created_at');
-                    setORderBy(!sortBy);
+                    setOrderBy(!sortBy);
                 }}>Popular</button>
                 <input className="search" type="text" placeholder="Search by title" value={search} onChange={(e) => setSearch(e.target.value)} />
             </div>

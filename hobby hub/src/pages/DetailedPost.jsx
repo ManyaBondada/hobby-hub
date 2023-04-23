@@ -39,7 +39,9 @@ const DetailedPost = () =>  {
           {/* post content */}
           <div className="topContent">
             <Link to={`edit/${id}`}><img className="editButton" alt="edit button" src={'https://th.bing.com/th/id/OIP.YwxRLeYYAks_ZHMia4iC9AAAAA?pid=ImgDet&rs=1'} /></Link>
-            <p className="timeStamp"> Created {Math.floor((Date.now() - Date.parse(post.created_at)) / (1000 * 60 * 60))} hours ago</p>          
+            { post.created_at == 1
+              ? (<p className="timeStamp"> 1 hour ago</p> )
+              : (<p className="timeStamp"> Created {Math.floor((Date.now() - Date.parse(post.created_at)) / (1000 * 60 * 60))} hours ago</p> )}         
           </div>
           
           <p className="title2">{post.title}</p>
@@ -51,7 +53,9 @@ const DetailedPost = () =>  {
             <button onClick={updateUpCount} className="upVoteButton">
               <img className="upvoteImage" src={'https://th.bing.com/th/id/R.a494164dc62e24085eccb407b85b338d?rik=wgX3uKLfvQo3Cg&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2f9iR%2fg7k%2f9iRg7koXT.png&ehk=IZLVLiQFwkr3vr0uklGH4YaV4Hhj9f37c%2fK0cZYKpNM%3d&risl=&pid=ImgRaw&r=0'}/>
             </button>
-            <p className="upvoteCount2">{count} upvotes</p>
+            {count == 1 
+              ? (<p className="upvoteCount2">{count} upvote</p>)
+              : (<p className="upvoteCount2">{count} upvotes</p>)}
           </div>
 
           {/* comments div */}
