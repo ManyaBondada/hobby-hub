@@ -1,9 +1,9 @@
 import React from 'react'
-import './Card.css'
+import './SummaryCard.css'
 import { Link } from 'react-router-dom'
 
 
-const Card = (props) =>  {
+const SummaryCard = (props) =>  {
 
   return (
       <div className="Card">
@@ -15,4 +15,4 @@ const Card = (props) =>  {
   );
 };
 
-export default Card;
+export default SummaryCard;

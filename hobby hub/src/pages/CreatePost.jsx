@@ -25,7 +25,7 @@ const CreatePost = () => {
         await supabase
             .from('Avatarposts')
             .insert({title: post.title, descr: post.descr, image: post.image})
-            //.select();
+            .select();
 
             window.location = "/";   
     }
