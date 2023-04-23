@@ -6,6 +6,7 @@ import { supabase } from '../client'
 const DetailedPost = () =>  {
     const { id } = useParams();
     const [post, setPost] = useState({});
+    const [count, setCount] = useState();
 
     useEffect(() => {
         fetchPost();
@@ -18,18 +19,39 @@ const DetailedPost = () =>  {
           .eq('id', id)
           .single();
           setPost(data)
+          setCount(data.upvotes)
       }
+
+  // update upvote count
+  const updateUpCount = async (event) => {
+    event.preventDefault();
+    // Update in Supabase
+    await supabase
+      .from('Avatarposts')
+      .update({ upvotes: count + 1})
+      .eq('id', id)
+      setCount(count + 1);
+  }
 
 
   return (
       <div className="DetailedPost">
 
+          {/* post content */}
           <Link to={`edit/${id}`}><img className="editButton" alt="edit button" src={'https://th.bing.com/th/id/OIP.YwxRLeYYAks_ZHMia4iC9AAAAA?pid=ImgDet&rs=1'} /></Link>
           <p className="title2">{post.title}</p>
           <p className="descr2">{post.descr}</p>
           <img className="image" alt="avatar" src={post.image} />
         
+          {/* upvotes div */}
+          <div className="up">
+            <button onClick={updateUpCount} className="upVoteButton">
+              <img className="upvoteImage" src={'https://th.bing.com/th/id/R.a494164dc62e24085eccb407b85b338d?rik=wgX3uKLfvQo3Cg&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2f9iR%2fg7k%2f9iRg7koXT.png&ehk=IZLVLiQFwkr3vr0uklGH4YaV4Hhj9f37c%2fK0cZYKpNM%3d&risl=&pid=ImgRaw&r=0'}/>
+            </button>
+            <p className="upvoteCount2">{count} upvotes</p>
+          </div>
 
+          {/* comments div */}
           <div className="comments">
             <div className="writeComments">
               <form>
@@ -38,14 +60,8 @@ const DetailedPost = () =>  {
                     <br/>
                 </form>
             </div>
-            {/* add user comments here */}
           </div>
-
-
-          
-          {/* link edit post button */}
-          {/* link delete post button */}
-          {/* link go back to main post screen */}
+      
       </div>
   );
 };

@@ -14,7 +14,7 @@ const ReadPosts = () => {
         const {data} = await supabase
         .from('Avatarposts')
         .select()
-        .order('created_at', { ascending: true })
+        .order('upvotes', { ascending: false })
         setPosts(data);
       }
     
@@ -23,7 +23,7 @@ const ReadPosts = () => {
             {
                 posts && posts.length > 0 ?
                 posts.map((post,index) => 
-                   <SummaryCard id={post.id} created_at={Math.floor((Date.now() - Date.parse(post.created_at)) / (1000 * 60 * 60))} title={post.title} key={index}/>
+                   <SummaryCard id={post.id} created_at={Math.floor((Date.now() - Date.parse(post.created_at)) / (1000 * 60 * 60))} title={post.title} upvotes={post.upvotes} key={index}/>
                 ) : <h2>No Posts Yet. Click to Add!</h2>
             }
         </div>  

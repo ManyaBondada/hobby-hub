@@ -47,3 +47,22 @@ textarea {
     border: 1px solid transparent;
     font-size: 15px;
 }
+
+.up{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.upvoteImage{
+    width: 30px;
+    height: 35px;
+    left: 10px;
+}
+
+.upvoteCount2{
+    font-size: 15px;
+    text-align: left;
+    line-height: 0px;
+}

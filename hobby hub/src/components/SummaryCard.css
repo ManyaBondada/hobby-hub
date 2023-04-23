@@ -1,5 +1,5 @@
 .SummaryCard {
-    position: relative;
+    /* position: relative; */
     backdrop-filter: blur(2px);
     border: 1px solid rgba(153, 153, 153, 0.497);
     border-radius: 20px;
@@ -23,21 +23,13 @@
     margin: 10px;
 }
 
-.upvoteImage{
-    position: absolute;
-    bottom: 0;
-    width: 30px;
-    height: 35px;
-    left: 10px;
-}
-
 .upvoteCount{
-    position: absolute;
-    bottom: 0;
-    left: 50px;
     font-size: 15px;
     text-align: left;
     line-height: 0px;
+    margin: 10px;
+    position: absolute;
+    bottom: 5;
 }
 
 .moreButton {
