@@ -39,9 +39,9 @@ const DetailedPost = () =>  {
           {/* post content */}
           <div className="topContent">
             <Link to={`edit/${id}`}><img className="editButton" alt="edit button" src={'https://th.bing.com/th/id/OIP.YwxRLeYYAks_ZHMia4iC9AAAAA?pid=ImgDet&rs=1'} /></Link>
-            { post.created_at == 1
-              ? (<p className="timeStamp"> 1 hour ago</p> )
-              : (<p className="timeStamp"> Created {Math.floor((Date.now() - Date.parse(post.created_at)) / (1000 * 60 * 60))} hours ago</p> )}         
+            {post.created_at == 1
+            ? (<p className="timeStamp"> Created 1 hour ago</p> )
+            : (<p className="timeStamp"> Created {Math.floor((Date.now() - Date.parse(post.created_at)) / (1000 * 60 * 60))} hours ago</p> )}         
           </div>
           
           <p className="title2">{post.title}</p>
