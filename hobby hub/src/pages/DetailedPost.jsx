@@ -7,21 +7,23 @@ const DetailedPost = () =>  {
     const { id } = useParams();
     const [post, setPost] = useState({});
     const [count, setCount] = useState();
-    const [comments, setComments] = useState([]);
+    const [comment, setComment] = useState('');
+    // const [newComment, setNewComment] = useState('');
 
     useEffect(() => {
         fetchPost();
-      }, [id])
+    }, [id])
 
-      const fetchPost = async () => {
-        const {data} = await supabase
-          .from('Avatarposts')
-          .select("*")
-          .eq('id', id)
-          .single();
-          setPost(data)
-          setCount(data.upvotes)
-      }
+const fetchPost = async () => {
+    const {data} = await supabase
+      .from('Avatarposts')
+      .select("*")
+      .eq('id', id)
+      .single();
+      setPost(data)
+      setCount(data.upvotes)
+      setNewComment(data.comments)
+    }
 
   // update upvote count
   const updateUpCount = async (event) => {
@@ -34,18 +36,19 @@ const DetailedPost = () =>  {
       setCount(count + 1);
   }
 
-  // take entry from comment textarea and add it to usestate array
-  const handleChange = (event) => {
-    const {value} = event.target;
-    setComments((prev) => [...prev, value]);
+  // add new comment to comments on submit
+  const updateComments = async (event) => {
+    event.preventDefault();
+    await supabase 
+      .from('Avatarposts')
+      .update({comments: comment}) // add new comment
+      .eq('id', id)
   }
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    await supabase  
-      .from('Avatarposts')
-      .update({ comments: [comments]})
-      .eq('id', id)
+  // add new comment to usestate array
+  const handleChange = (event) => {
+    const {value} = event.target;
+    setComment(value)
   }
 
   return (
@@ -78,11 +81,16 @@ const DetailedPost = () =>  {
             <div className="writeComments">
               <form> 
                     <label for="comments"></label> <br />
-                    <textarea placeholder="Leave a comment" id="comments" name="comments" rows="1" cols="60" onChange={handleChange}/>
-                    <button className="commentSubmit" type="submit" onSubmit={handleSubmit}>Submit</button>
+                    <textarea placeholder="Leave a comment" id="comments" name="comments" rows="1" cols="60" value={comment} onChange={handleChange}/>
+                    <button className="commentSubmit" type="submit" onSubmit={updateComments}>Submit</button>
                     <br/>
                 </form>
             </div>
+            {
+                comment != '' 
+                ? <li>{comment}</li>
+                : <p>No Comments Yet!</p>
+            }
           </div>
       
       </div>

@@ -24,12 +24,9 @@ const ReadPosts = () => {
 
     const sortedPosts = [...posts].sort((a, b) => { // sorts based on vote/date and re renders feed 
         if (sortBy == 'upvotes') {
-          // if(a[sortBy] == 0)
-          //   return a[sortBy]
-          // else
             return a[sortBy] - b[sortBy]; // a needs to go before b
         } else {
-          return b[sortBy] - a[sortBy]; // b needs to go before a
+            return a[sortBy] - b[sortBy]; // b needs to go before a
         }
       });
 
