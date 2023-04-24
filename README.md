@@ -4,7 +4,7 @@ Submitted by: **Manya Bondada**
 
 This web app: **allows Avatar The Last Airbender fans to share the thoughts and different content in the form of posts with other fans.**
 
-Time spent: **19** hours spent in total
+Time spent: **20** hours spent in total
 
 ## Required Features
 
