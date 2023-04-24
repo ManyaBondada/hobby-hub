@@ -70,3 +70,9 @@ textarea {
 .topContent{
     display: flex;
 }
+
+.userComments{
+    font-size: 20px;
+    text-align: left;
+}
+

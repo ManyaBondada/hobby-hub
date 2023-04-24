@@ -7,6 +7,7 @@ const DetailedPost = () =>  {
     const { id } = useParams();
     const [post, setPost] = useState({});
     const [count, setCount] = useState();
+    const [comments, setComments] = useState([]);
 
     useEffect(() => {
         fetchPost();
@@ -31,6 +32,20 @@ const DetailedPost = () =>  {
       .update({ upvotes: count + 1})
       .eq('id', id)
       setCount(count + 1);
+  }
+
+  // take entry from comment textarea and add it to usestate array
+  const handleChange = (event) => {
+    const {value} = event.target;
+    setComments((prev) => [...prev, value]);
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    await supabase  
+      .from('Avatarposts')
+      .update({ comments: [comments]})
+      .eq('id', id)
   }
 
   return (
@@ -61,9 +76,10 @@ const DetailedPost = () =>  {
           {/* comments div */}
           <div className="comments">
             <div className="writeComments">
-              <form>
+              <form> 
                     <label for="comments"></label> <br />
-                    <textarea placeholder="Leave a comment" id="comments" name="comments" rows="1" cols="50"/>
+                    <textarea placeholder="Leave a comment" id="comments" name="comments" rows="1" cols="60" onChange={handleChange}/>
+                    <button className="commentSubmit" type="submit" onSubmit={handleSubmit}>Submit</button>
                     <br/>
                 </form>
             </div>
