@@ -22,14 +22,9 @@ The following **required** functionality is completed:
 - [x] **Each post should have an upvote button on the post's page. Each click increases its upvotes count by one and users can upvote any number of times**
 - [x] **A previously created post can be edited or deleted from its post page**
 
-The following **optional** features are implemented:
-- [ ] Users can share and view web videos
-
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
-
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+Here's a walkthrough of implemented user stories: **https://drive.google.com/file/d/1N2DVHXPIcSHWn19Lq9gkwb66zIcOhECo/view?usp=share_link**
 
 GIF created with LICEcap
 
